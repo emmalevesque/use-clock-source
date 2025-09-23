@@ -1,16 +1,16 @@
 {
-  "name": "clock-source",
+  "name": "use-clock-source",
   "version": "1.0.0",
   "description": "A centralized timing system for React applications with synchronized animations and timed events",
-  "author": "Your Name <your.email@example.com>",
+  "author": "Emma Levesque <hi@emmalevesque.xyz>",
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/clock-source#readme",
+  "homepage": "https://github.com/emmalevesque/use-clock-source#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/clock-source.git"
+    "url": "git+https://github.com/emmalevesque/use-clock-source.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/clock-source/issues"
+    "url": "https://github.com/emmalevesque/use-clock-source/issues"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

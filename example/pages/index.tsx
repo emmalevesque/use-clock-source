@@ -1,4 +1,4 @@
-import {TimingProvider, useTimingClock} from "clock-source";
+import {TimingProvider, useTimingClock} from "use-clock-source";
 import {useState, useEffect, useRef} from "react";
 
 // Example 1: Animated Counter
