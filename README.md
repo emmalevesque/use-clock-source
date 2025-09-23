@@ -309,11 +309,22 @@ git commit -m "docs: update README with new examples"
 
 This project uses [semantic-release](https://github.com/semantic-release/semantic-release) for automatic versioning:
 
-- **Patch releases** (1.0.0 → 1.0.1): Bug fixes
-- **Minor releases** (1.0.0 → 1.1.0): New features  
-- **Major releases** (1.0.0 → 2.0.0): Breaking changes
+- **Patch releases** (1.0.0 → 1.0.1): Bug fixes (`fix:` commits)
+- **Minor releases** (1.0.0 → 1.1.0): New features (`feat:` commits)
+- **Major releases** (1.0.0 → 2.0.0): Breaking changes (`BREAKING CHANGE:` in commit body/footer)
 
 Version numbers, changelogs, and npm releases are automatically generated based on your commit messages.
+
+#### 📦 Publishing Notes
+
+**Important**: The package is only published to npm when commits contain release-triggering types:
+
+- ✅ `feat:` - Triggers minor release and npm publish
+- ✅ `fix:` - Triggers patch release and npm publish
+- ✅ `BREAKING CHANGE:` - Triggers major release and npm publish
+- ❌ `docs:`, `chore:`, `style:`, `refactor:`, `test:` - No release triggered
+
+If your GitHub Actions show successful runs but the package doesn't appear in npm, check that your recent commits include `feat:` or `fix:` types. Documentation and maintenance commits alone won't trigger a release.
 
 ### Development Workflow
 
