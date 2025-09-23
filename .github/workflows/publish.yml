@@ -32,7 +32,6 @@ jobs:
       with:
         node-version: 20.8.1
         cache: 'pnpm'
-        registry-url: 'https://registry.npmjs.org'
 
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
@@ -44,10 +43,15 @@ jobs:
       run: pnpm run build
 
     - name: Configure npm authentication
-      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      run: |
+        rm -f ~/.npmrc
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        npm whoami
 
     - name: Semantic Release
       run: pnpm run semantic-release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NPM_CONFIG_REGISTRY: https://registry.npmjs.org/
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
