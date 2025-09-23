@@ -1,4 +1,4 @@
-# clock-source
+# use-clock-source
 
 A centralized timing system for React applications that provides synchronized animations and timed events across your entire app.
 
@@ -15,11 +15,11 @@ A centralized timing system for React applications that provides synchronized an
 ## Installation
 
 ```bash
-npm install clock-source
+npm install use-clock-source
 # or
-yarn add clock-source
+yarn add use-clock-source
 # or
-pnpm add clock-source
+pnpm add use-clock-source
 ```
 
 ## Quick Start
@@ -30,7 +30,7 @@ Wrap your app with the `TimingProvider`:
 
 ```tsx
 import React from 'react';
-import { TimingProvider } from 'clock-source';
+import { TimingProvider } from 'use-clock-source';
 
 function App() {
   return (
@@ -45,7 +45,7 @@ Use the timing clock in any component:
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { useTimingClock } from 'clock-source';
+import { useTimingClock } from 'use-clock-source';
 
 function AnimatedComponent() {
   const clock = useTimingClock();
@@ -73,7 +73,7 @@ For components that need independent timing:
 
 ```tsx
 import React from 'react';
-import { useTimingClockStandalone } from 'clock-source';
+import { useTimingClockStandalone } from 'use-clock-source';
 
 function MyComponent() {
   const clock = useTimingClockStandalone({
@@ -137,7 +137,7 @@ interface TimingClock {
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { useTimingClock } from 'clock-source';
+import { useTimingClock } from 'use-clock-source';
 
 function FadeInComponent() {
   const clock = useTimingClock();
@@ -163,7 +163,7 @@ function FadeInComponent() {
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { useTimingClock } from 'clock-source';
+import { useTimingClock } from 'use-clock-source';
 
 function Slideshow() {
   const clock = useTimingClock();
@@ -186,7 +186,7 @@ function Slideshow() {
 
 ```tsx
 import React from 'react';
-import { useTimingClock } from 'clock-source';
+import { useTimingClock } from 'use-clock-source';
 
 function AnimationControls() {
   const clock = useTimingClock();
@@ -205,7 +205,7 @@ function AnimationControls() {
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { useTimingClock } from 'clock-source';
+import { useTimingClock } from 'use-clock-source';
 
 function AnimatedCounter({ target }: { target: number }) {
   const clock = useTimingClock();
@@ -247,7 +247,7 @@ Replace your existing timing code:
 
 ```tsx
 import { useEffect } from 'react';
-import { useTimingClock } from 'clock-source';
+import { useTimingClock } from 'use-clock-source';
 
 // Before
 useEffect(() => {

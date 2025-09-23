@@ -5,19 +5,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ### Build and Development
-- `npm run build` - Build the library using tsup (outputs to dist/)
-- `npm run dev` - Start development build with watch mode
-- `npm run clean` - Remove the dist directory
-- `npm run type-check` - Run TypeScript type checking without emitting files
+- `pnpm run build` - Build the library using tsup (outputs to dist/)
+- `pnpm run dev` - Start development build with watch mode
+- `pnpm run clean` - Remove the dist directory
+- `pnpm run type-check` - Run TypeScript type checking without emitting files
 
 ### Testing
-- `npm test` - Run Jest tests
-- `npm run test:watch` - Run tests in watch mode
-- `npm run test:coverage` - Run tests with coverage report (requires 80% coverage threshold)
+- `pnpm test` - Run Jest tests
+- `pnpm run test:watch` - Run tests in watch mode
+- `pnpm run test:coverage` - Run tests with coverage report (requires 80% coverage threshold)
+- To run a single test file: `pnpm test -- useTimingClock.test.ts`
+- To run tests matching a pattern: `pnpm test -- --testNamePattern="should pause"`
 
 ### Package Management
-- `npm run prepublishOnly` - Automatically runs build before publishing
-- `npm run preview` - Build and show what would be included in npm package
+- `pnpm run prepublishOnly` - Automatically runs build before publishing
+- `pnpm run preview` - Build and show what would be included in npm package
+- `pnpm run semantic-release` - Create automated release
+- `pnpm run release:dry-run` - Test release without publishing
 
 ## Architecture
 
@@ -61,4 +65,10 @@ Uses Jest with jsdom environment. Tests are located in `__tests__` directories a
 
 - **tsup**: Builds both CommonJS and ESM formats with TypeScript declarations
 - **External dependencies**: React, React-DOM, and Next.js are marked as externals
-- **Target compatibility**: React 18+, Node 16+, Next.js 13+
+- **Target compatibility**: React 18+, Node 20.8.1+, Next.js 13+
+
+### Development Guidelines
+
+- **Commit Convention**: Uses Conventional Commits for automatic versioning and changelog generation
+- **Semantic Release**: Automatic version bumping based on commit types (feat/fix/BREAKING CHANGE)
+- **Package Manager**: Uses pnpm instead of npm for dependency management
