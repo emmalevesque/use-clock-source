@@ -172,7 +172,7 @@ export function TimingProvider({
   const schedule = useCallback(
     (callback: () => void, delay: number) => {
       const id = Math.random().toString(36).substr(2, 9);
-      const scheduledTime = now + delay;
+      const scheduledTime = Date.now() + delay;
 
       scheduledCallbacksRef.current.set(id, {
         callback,
@@ -183,7 +183,7 @@ export function TimingProvider({
         scheduledCallbacksRef.current.delete(id);
       };
     },
-    [now]
+    []
   );
 
   const createInterval = useCallback(
@@ -193,20 +193,20 @@ export function TimingProvider({
       intervalCallbacksRef.current.set(id, {
         callback,
         interval,
-        lastRun: now,
+        lastRun: Date.now(),
       });
 
       return () => {
         intervalCallbacksRef.current.delete(id);
       };
     },
-    [now]
+    []
   );
 
   const createTimeout = useCallback(
     (callback: () => void, delay: number) => {
       const id = Math.random().toString(36).substr(2, 9);
-      const timeoutTime = now + delay;
+      const timeoutTime = Date.now() + delay;
 
       timeoutCallbacksRef.current.set(id, {
         callback,
@@ -217,7 +217,7 @@ export function TimingProvider({
         timeoutCallbacksRef.current.delete(id);
       };
     },
-    [now]
+    []
   );
 
   // Auto-start effect

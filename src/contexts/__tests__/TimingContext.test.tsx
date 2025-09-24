@@ -1,3 +1,4 @@
+import React from "react";
 import {render, screen} from "@testing-library/react";
 import {TimingProvider, useTimingClock} from "../TimingContext";
 
@@ -84,6 +85,7 @@ describe("TimingProvider", () => {
     expect(Number(nowElement.textContent)).toBeGreaterThan(0);
     expect(Number(timeElement.textContent)).toBeGreaterThan(0);
   });
+
 });
 
 describe("useTimingClock", () => {
