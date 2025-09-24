@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/emmalevesque/use-clock-source/compare/v1.0.1...v1.1.0) (2025-09-24)
+
+
+### Features
+
+* Update ID generation in scheduling functions to use substring for consistency and improve readability ([6d2040a](https://github.com/emmalevesque/use-clock-source/commit/6d2040ae5284666c1277ef79bf2132d755219bee))
+
 ## [1.0.1](https://github.com/emmalevesque/use-clock-source/compare/v1.0.0...v1.0.1) (2025-09-24)
 
 
