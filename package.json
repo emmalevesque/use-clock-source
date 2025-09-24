@@ -1,6 +1,6 @@
 {
   "name": "use-clock-source",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A centralized timing system for React applications with synchronized animations and timed events",
   "author": "Emma Levesque <hi@emmalevesque.xyz>",
   "license": "MIT",

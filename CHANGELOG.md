@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/emmalevesque/use-clock-source/compare/v1.1.0...v1.1.1) (2025-09-24)
+
+
+### Bug Fixes
+
+* **timing:** Store updateTime in a ref for consistent timing loop execution in TimingProvider and useTimingClock ([1e737df](https://github.com/emmalevesque/use-clock-source/commit/1e737dfb5971a43ed70da25be44e65f4dc8ca8db))
+
 # [1.1.0](https://github.com/emmalevesque/use-clock-source/compare/v1.0.1...v1.1.0) (2025-09-24)
 
 
