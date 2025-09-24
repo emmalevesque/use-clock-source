@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/emmalevesque/use-clock-source/compare/v1.0.0...v1.0.1) (2025-09-24)
+
+
+### Bug Fixes
+
+* **timing:** Replace 'now' with 'Date.now()' for accurate timing calculations and remove unnecessary dependencies in scheduling callbacks ([a29978c](https://github.com/emmalevesque/use-clock-source/commit/a29978ccecb58a35f5b005e91f95cd8f24162598))
+
 # 1.0.0 (2025-09-23)
 
 
