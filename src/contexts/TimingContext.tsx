@@ -62,6 +62,7 @@ export function TimingProvider({
   const deltaTimeRef = useRef(0);
   const animationFrameRef = useRef<number>();
   const intervalRef = useRef<NodeJS.Timeout>();
+  const updateTimeRef = useRef<() => void>();
   const scheduledCallbacksRef = useRef<
     Map<string, {callback: () => void; time: number}>
   >(new Map());
@@ -106,6 +107,9 @@ export function TimingProvider({
     });
   }, []);
 
+  // Store updateTime in ref so it's always current in the timing loop
+  updateTimeRef.current = updateTime;
+
   const start = useCallback(() => {
     if (isRunning) return;
 
@@ -114,15 +118,15 @@ export function TimingProvider({
 
     if (useRAF) {
       const tick = () => {
-        updateTime();
+        updateTimeRef.current?.();
         animationFrameRef.current = requestAnimationFrame(tick);
       };
       animationFrameRef.current = requestAnimationFrame(tick);
     } else {
       const interval = 1000 / targetFPS;
-      intervalRef.current = setInterval(updateTime, interval);
+      intervalRef.current = setInterval(() => updateTimeRef.current?.(), interval);
     }
-  }, [isRunning, useRAF, targetFPS, updateTime]);
+  }, [isRunning, useRAF, targetFPS]);
 
   const stop = useCallback(() => {
     setIsRunning(false);
