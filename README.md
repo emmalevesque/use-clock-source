@@ -4,13 +4,13 @@ A centralized timing system for React applications that provides synchronized an
 
 ## Features
 
-- 🎯 **Centralized Clock**: Single source of truth for all timing operations
-- ⚡ **High Performance**: Uses `requestAnimationFrame` for smooth 60fps animations
-- 🔄 **Synchronized Events**: All components use the same timing reference
-- ⏸️ **Global Control**: Pause, resume, or stop all animations at once
-- 🎨 **React Context**: Easy integration with React's context system
-- 📦 **TypeScript**: Full TypeScript support with comprehensive type definitions
-- 🪝 **Standalone Hook**: Use independently or with context provider
+- **Centralized Clock**: Single source of truth for all timing operations
+- **High Performance**: Uses `requestAnimationFrame` for smooth 60fps animations
+- **Synchronized Events**: All components use the same timing reference
+- **Global Control**: Pause, resume, or stop all animations at once
+- **React Context**: Easy integration with React's context system
+- **TypeScript**: Full TypeScript support with comprehensive type definitions
+- **Standalone Hook**: Use independently or with context provider
 
 ## Installation
 
@@ -269,29 +269,6 @@ function MyComponent() {
 
 - React 18.0.0 or higher
 - TypeScript 5.0.0 or higher (for TypeScript projects)
-
-## Troubleshooting
-
-### Interval Callbacks Not Executing
-
-If your `createInterval()` callbacks aren't firing, ensure you're using version 1.0.1 or later. Earlier versions had a bug where stale React state was used for timing calculations, preventing intervals from executing properly.
-
-```tsx
-// This should work correctly in v1.0.1+
-const clock = useTimingClock();
-const cleanup = clock.createInterval(() => {
-  console.log('This will now execute!');
-}, 1000);
-```
-
-### Animation Performance Issues
-
-If you experience choppy animations:
-
-1. Use `useRAF={true}` (default) for smooth 60fps animations
-2. Avoid expensive calculations inside interval callbacks
-3. Batch DOM updates where possible
-4. Consider using `deltaTime` for frame-rate independent animations
 
 ## License
 
