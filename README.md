@@ -73,10 +73,10 @@ For components that need independent timing:
 
 ```tsx
 import React from 'react';
-import { useTimingClockStandalone } from 'use-clock-source';
+import { useTimingClock } from 'use-clock-source';
 
 function MyComponent() {
-  const clock = useTimingClockStandalone({
+  const clock = useTimingClock({
     autoStart: true,
     targetFPS: 60,
     useRAF: true
@@ -269,6 +269,29 @@ function MyComponent() {
 
 - React 18.0.0 or higher
 - TypeScript 5.0.0 or higher (for TypeScript projects)
+
+## Troubleshooting
+
+### Interval Callbacks Not Executing
+
+If your `createInterval()` callbacks aren't firing, ensure you're using version 1.0.1 or later. Earlier versions had a bug where stale React state was used for timing calculations, preventing intervals from executing properly.
+
+```tsx
+// This should work correctly in v1.0.1+
+const clock = useTimingClock();
+const cleanup = clock.createInterval(() => {
+  console.log('This will now execute!');
+}, 1000);
+```
+
+### Animation Performance Issues
+
+If you experience choppy animations:
+
+1. Use `useRAF={true}` (default) for smooth 60fps animations
+2. Avoid expensive calculations inside interval callbacks
+3. Batch DOM updates where possible
+4. Consider using `deltaTime` for frame-rate independent animations
 
 ## License
 

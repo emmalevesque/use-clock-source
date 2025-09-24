@@ -159,7 +159,7 @@ export function useTimingClock(
 
   const schedule = useCallback(
     (callback: () => void, delay: number) => {
-      const id = Math.random().toString(36).substr(2, 9);
+      const id = Math.random().toString(36).substring(2, 11);
       const scheduledTime = Date.now() + delay;
 
       scheduledCallbacksRef.current.set(id, {
@@ -176,7 +176,7 @@ export function useTimingClock(
 
   const createInterval = useCallback(
     (callback: () => void, interval: number) => {
-      const id = Math.random().toString(36).substr(2, 9);
+      const id = Math.random().toString(36).substring(2, 11);
 
       intervalCallbacksRef.current.set(id, {
         callback,
@@ -193,7 +193,7 @@ export function useTimingClock(
 
   const createTimeout = useCallback(
     (callback: () => void, delay: number) => {
-      const id = Math.random().toString(36).substr(2, 9);
+      const id = Math.random().toString(36).substring(2, 11);
       const timeoutTime = Date.now() + delay;
 
       timeoutCallbacksRef.current.set(id, {
